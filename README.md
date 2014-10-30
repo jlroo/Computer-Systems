@@ -21,6 +21,10 @@ Textbook:
 
 Randal E. Bryant and David R. O'Halloran.
 Computer Systems: A Programmer's Perspective, 2nd edition, 2010.
-An optional \recommended" text is: Tomasz Muldner.
+
+
+An optional \recommended" text is: 
+
+Tomasz Muldner.
 C for Java Programmers. Addison-Wesley,2000.
 
