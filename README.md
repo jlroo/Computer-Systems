@@ -1,8 +1,5 @@
 COMP 264: Introduction to Computer Systems
 ================
-##Computer Science Department
-##Loyola University
-================
 
 ## Instructor
 * R. I. Greenberg
@@ -22,3 +19,6 @@ An optional \recommended" text is:
 
 Tomasz Muldner.
 C for Java Programmers. Addison-Wesley,2000.
+
+#####Computer Science Department 
+#####Loyola University
