@@ -4,7 +4,7 @@ COMP 264: Introduction to Computer Systems
 ###Loyola University
 
 ## Instructor
-R. I. Greenberg
+Dr. R. I. Greenberg
 
 ## Course Objectives
 This course is designed to provide students with an understanding of the hierarchy
