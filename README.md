@@ -1,12 +1,11 @@
 COMP 264: Introduction to Computer Systems
 ================
-
-Understanding of the hierarchy of abstractions and implementations that comprise a modern computer system. Topics that affect the performance, correctness, or utility of user-level programs. 
+##Computer Science Department
+##Loyola University
+================
 
 ## Instructor
 * R. I. Greenberg
-* Computer Science Department
-* Loyola University
 
 ## Course Objectives
 This course is designed to provide students with an understanding of the hierarchy
