@@ -1,8 +1,10 @@
 COMP 264: Introduction to Computer Systems
 ================
+###Computer Science Department 
+###Loyola University
 
 ## Instructor
-* R. I. Greenberg
+R. I. Greenberg
 
 ## Course Objectives
 This course is designed to provide students with an understanding of the hierarchy
@@ -19,6 +21,3 @@ An optional \recommended" text is:
 
 Tomasz Muldner.
 C for Java Programmers. Addison-Wesley,2000.
-
-#####Computer Science Department 
-#####Loyola University
