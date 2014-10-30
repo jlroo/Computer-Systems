@@ -6,9 +6,7 @@ Understanding of the hierarchy of abstractions and implementations that comprise
 COMP 264: Introduction to Computer Systems (Section 001)
 Instructor:
 R. I. Greenberg
-
 Computer Science Department
-
 Loyola University
 
 Course Objectives:
