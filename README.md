@@ -1,7 +1,7 @@
 COMP 264: Introduction to Computer Systems
 ================
 ###Computer Science Department 
-###Loyola University
+###Loyola University - Fall 2014
 
 ## Instructor
 Dr. R. I. Greenberg
