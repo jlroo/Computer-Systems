@@ -1,0 +1,197 @@
+HW7-1 (43 points) 
+
+Suppose we wish to write a procedure that computes the inner product of two vectors u and v. 
+An abstract version of the function has a CPE of 16{17 with x86-64 and 26-29 with IA32 for integer, 
+single-precision, and double-precision data. By doing the same sort of transformations we did to 
+transform the abstract program combine1 into the more efficient combine4, we get the following code:
+
+void inner4(vec_ptr u, vec_ptr v, data t *dest) {
+  
+  long int i;
+  int length = vec_length(u);
+  data_t *udata = get_vec_start(u);
+  data_t *vdata = get_vec_start(v);
+  data_t sum = (data_t) 0;
+    
+  for (i = 0; i < length; i++){
+    sum = sum + udata[i] * vdata[i];
+  }  
+  *dest = sum;
+  
+}
+
+Our measurements show that this function has a CPE of 3.00 for integer and floating-point data. 
+For data type float, the x86-64 assembly code for the inner loop is as follows 
+(udata in %rbx, vdata in %rax, limit in %rcx, i in %rdx, sum in %xmm1):
+
+.L87: 				     ; loop:
+  movss 	(%rbx,%rdx,4), %xmm0 ; Get udata[i]
+  mulss 	(%rax,%rdx,4), %xmm0 ; Multiply by vdata[i]
+  addss		%xmm0, %xmm1 	     ; Add to sum
+  addq 		$1, %rdx 	     ; Increment i
+  cmpq 		%rcx, %rdx 	     ; Compare i:limit
+  jl 		.L87 		     ; If <, goto loop
+  
+Assume that the functional units have the latencies and issue times given in Figure 5.12 (and
+in the course notes).
+
+A. Diagram how this instruction sequence would be decoded into operations, and show how the data
+dependencies between them would create a critical path of operations in the style of Figures 5.13
+(fpb-sequential.ppt) and 5.14 (fpb-ow.ppt and fpb-ow-abstract.ppt). (25 points.)
+
+The first we have to label each register %rax, %rbx, %rcx, %rdx, %xmm0, and %xmm1.
+ _______ _______ _______ _______ _______ _______
+|	| 	|	|	|	| 	|
+| %rax	| %rbx	| %rcx	| %rdx	| %xmm0 | %xmm1	|
+|_______|_______|_______|_______|_______|_______|
+
+
+Instrcutions Execution (loading, storing, multiplying..)
+ 
+movss -> load operation
+
+mulss -> load the value and multiply
+
+addss -> add operation
+
+addq  -> add operation
+
+cmpq  -> comparison
+
+jl    -> jump if less than operation.
+
+if object needs the operation value then object points to that operation. 
+If operation value out and these values are used in other operations, then 
+we need to be documented.
+ _______ _______ _______ _______ _______ _______
+|	| 	|	|	|	| 	|
+| %rax	| %rbx	| %rcx	| %rdx	| %xmm0 | %xmm1	|
+|_______|_______|_______|_______|_______|_______|
+    |	    |	    |	    |		    |			 _______ 
+    |	    |-------|-------|---------------|------------------>|	|
+    |	    |	    |	    |---------------|------------------>| load	|   (movss)
+    |	    |	    |	    |	       |----|-------------------|_______|
+    |	    |	    |	    |          |    |			_______ 
+    |-------|-------|-------|----------|----|------------------>|	|
+    |	    |	    |	    |          |    |			| load	|
+    |	    |	    |	    |----------|----|------------------>|_______|
+    |	    |	    |	    |	       |    |			_______     (mulss)
+    |	    |	    |	    |	       |----|------------------>|	|
+    |	    |	    |	    |	            |			| mul	|
+    |	    |	    |	    |	       |----|-------------------|_______|
+    |	    |	    |	    |	       |    |			_______ 
+    |	    |	    |	    |	       |    |------------------>|	|
+    |	    |	    |	    |	       |----------------------->| add	|   (addss)
+    |	    |	    |	    |		    |-------------------|_______|
+    |	    |	    |	    |		    |			 _______ 
+    |	    |	    |	    |---------------|------------------>|	|
+    |	    |	    |			    |			| add	|   (cmpq)
+    |	    |	    |	    |---------------|-------------------|_______|
+    |	    |	    |	    |		    |			 _______ 
+    |	    |	    |	    |---------------|------------------>|	|
+    |	    |	    |	    |		    |			| cmp	|   (addss)
+    |	    |	    |-------|---------------|------------------>|_______|
+    |	    |	    |	    |		    |			_______ 
+    |	    |	    |	    |		    |			|	|
+    |	    |	    |	    |		    |			| jump	|    (jl)
+    |	    |	    |	    |		    |			|_______|
+ ___|___ ___|___ ___|___ ___|___ _______ ___|___
+|	| 	|	|	|	| 	|
+| %rax	| %rbx	| %rcx	| %rdx	| %xmm0 | %xmm1	|
+|_______|_______|_______|_______|_______|_______|
+
+Following the sample figures the arrows will be the same the same but there is
+greater organization on how data flows:
+ _______ _______ _______ _______ _______ _______
+|	| 	|	|	|	| 	|
+| %xmm1	| %xmm0	| %rbx	| %rax	| %rdx | %rcx	|
+|_______|_______|_______|_______|_______|_______|
+    |	     |	 ___|___    |	    |	      |
+    |	     |	|	|   |	    |         |
+    |	     |	| load	|<----------|	      |
+    |	     |  |_______|   |	    |	      |
+    |	     |		 ___|___    |	      |
+    |	     |		|	|   |	      |
+    |	     |		| load	|<--|	      |
+    |	     |		|_______|   |         |
+    |	     |		    |       |	      |
+    |	   __|___	    |	    |	      |
+    | ----|	 |	    |	    |	      |
+    | |	  |mulss |----------|	    |	      |
+ ___|_|_  |______|		    |         |
+|	|			    |	      |
+| addss	|			    |	      |
+|_______|			 ___|___      |
+    |				|	|     |
+ ___|___ 			| addq	|     |
+|	|			|_______|  ___|___
+| %xmm1	|			    |	  |	  |
+|_______|			    |---->| cmpq  |
+				    |	  |_______|
+				 ___|___   ___|___   
+				|	| |	  |
+				| %rdx	| |  jl   |
+				|_______| |_______|
+
+
+B. For data type float, what lower bound on the CPE is determined by the critical path? (6 points.)
+  
+    The lower bound for the data type float is determined by  (4+3)/3 = 7/3 = 2.33
+
+C. Assuming similar instruction sequences for the integer code as well, what lower bound on the CPE 
+   is determined by the critical path for integer data? (6 points.)
+   
+    For the integer data type the critical path is determined by (3+1)/3 = 4/3 =1.33
+
+D. Explain how the two floating-point versions can have CPEs of 3.00 even though the multiplication
+   operation requires either 4 or 5 cycles. (6 points.)
+  
+    The multiplication z = i * (i-1) can overlap with the multiplication result * z from the
+    previous iteration.
+
+HW7-2 (27 points) 
+
+Write a version of the inner product procedure described in the previous problem that uses four-way 
+loop unrolling with four parallel accumulators. (15 points.) Measurements for this function 
+with x86-64 give a CPE of 2.00 for all types of data.
+
+void inner4(vec_ptr u, vec_ptr v, data_t *dest)
+	{
+	    long int i;
+	    long int length = vec_length(u);
+	    long int length = vec_length(v);
+	    long int limit = length-3; 
+	    data_t *udata = get_vec_start(u);
+	    data_t *vdata = get_vec_start(v);
+	    data_t sum = (data_t) 0; 
+	    data_t sum1 = (data_t) 0; 
+	    data_t sum2 = (data_t) 0;
+	    data_t sum3 = (data_t) 0;
+
+	    //unrolls 4 at a time
+	    for (i = 0; i < limit; i += 4) {
+	        sum += (udata[i] * vdata[i]);
+		sum1 += (udata[i+1] * vdata[i+1]);
+		sum2 += (udata[i+2] * vdata[i+2]);
+		sum3 += (udata[i+3] * vdata[i+3]);
+	    }
+	    for (; i < limit; i++) {
+		sum = sum data[i];
+	    }
+	    
+	    *dest = sum + sum1 + sum2 + sum3;
+	}
+	
+A. What factor limits the performance to a CPE of 2.00? (6 points.)
+  
+    In this case we have to perfom two loads for each element with a unit that can only load 
+    one value per clock cycle. We also have to perform one floating-point multiplication with a 
+    unit that can only perform one multiplication every two clock cycles. These two factors limit 
+    the CPE to 2.
+
+B. Explain why the version with integer data on IA32 achieves a CPE of 2.75, worse than the CPE
+   of 2.25 achieved with just four-way loop unrolling. (6 points.)
+
+    This illustrates the write/read penomenon dependency the outcome of a memory read depends on 
+    a recent memory write.This is why the later performance measurements shown a CPE increase. 
+    The write/read dependency causes a slowdown in the processing.
