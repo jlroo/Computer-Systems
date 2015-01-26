@@ -29,17 +29,12 @@ geared towards topics of interest to a programmer, i.e., topics that aect the p
 utility of user-level programs. Since this investigation is best carried out using the C programming language,
 the course will include some instruction in C for programmers familiar with Java.
 
-Textbook: 
+=======
+
+## Textbook
 Randal E. Bryant and David R. O'Halloran.
 Computer Systems: A Programmer's Perspective.
 Pearson Prentice Hall, 2nd edition, 2010.
 
-An optional \recommended" text is: Tomasz Muldner.C for Java Programmers.Addison-Wesley
-=======
-## Textbook
-Randal E. Bryant and David R. O'Halloran.
-Computer Systems: A Programmer's Perspective, 2nd edition, 2010.
-
-An optional recommended text is: 
-Tomasz Muldner.
-C for Java Programmers. Addison-Wesley,2000.
+An optional text is: 
+Tomasz Muldner.C for Java Programmers.Addison-Wesley
