@@ -6,7 +6,6 @@ COMP 264: Introduction to Computer Systems
 ## Instructor
 Dr. R. I. Greenberg
 
-<<<<<<< HEAD
 COMP 264: Introduction to Computer Systems (Section 001)
 Fall 2014 Course Information & Syllabus
 Instructor: R. I. Greenberg
@@ -23,14 +22,13 @@ Lectures: Monday, Wednesday, and Friday 10:25 - 11:15am in Crown 103.
 Course Objectives:
 =======
 ## Course Objectives
->>>>>>> dfb44277d3cce6588154b482d8b196de038bd20d
+
 This course is designed to provide students with an understanding of the hierarchy
 of abstractions and implementations that comprise a modern computer system. The course is particularly
 geared towards topics of interest to a programmer, i.e., topics that aect the performance, correctness, or
 utility of user-level programs. Since this investigation is best carried out using the C programming language,
 the course will include some instruction in C for programmers familiar with Java.
 
-<<<<<<< HEAD
 Textbook: 
 Randal E. Bryant and David R. O'Halloran.
 Computer Systems: A Programmer's Perspective.
@@ -43,8 +41,6 @@ An optional \recommended" text is: Tomasz Muldner.C for Java Programmers.Addiso
 Randal E. Bryant and David R. O'Halloran.
 Computer Systems: A Programmer's Perspective, 2nd edition, 2010.
 
-An optional \recommended" text is: 
->>>>>>> dfb44277d3cce6588154b482d8b196de038bd20d
-
+An optional recommended text is: 
 Tomasz Muldner.
 C for Java Programmers. Addison-Wesley,2000.
