@@ -17,8 +17,6 @@ Water TowerCampus, Lewis Towers 520
 Chicago, Illinois 60611-2147
 Home page: http://rig.cs.luc.edu/~rig
 
-=======
-
 ## Course Objectives
 
 This course is designed to provide students with an understanding of the hierarchy
