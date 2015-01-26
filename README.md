@@ -25,8 +25,6 @@ geared towards topics of interest to a programmer, i.e., topics that aect the p
 utility of user-level programs. Since this investigation is best carried out using the C programming language,
 the course will include some instruction in C for programmers familiar with Java.
 
-=======
-
 ## Textbook
 Randal E. Bryant and David R. O'Halloran.
 Computer Systems: A Programmer's Perspective.
