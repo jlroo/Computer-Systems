@@ -18,9 +18,8 @@ Chicago, Illinois 60611-2147
 
 Home page: http://rig.cs.luc.edu/~rig
 Lectures: Monday, Wednesday, and Friday 10:25 - 11:15am in Crown 103.
-
-Course Objectives:
 =======
+
 ## Course Objectives
 
 This course is designed to provide students with an understanding of the hierarchy
