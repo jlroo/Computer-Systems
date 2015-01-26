@@ -34,8 +34,7 @@ Randal E. Bryant and David R. O'Halloran.
 Computer Systems: A Programmer's Perspective.
 Pearson Prentice Hall, 2nd edition, 2010.
 
-An optional \recommended" text is: Tomasz Muldner.C for Java Programmers.Addison-Wesley,
-2000.
+An optional \recommended" text is: Tomasz Muldner.C for Java Programmers.Addison-Wesley
 =======
 ## Textbook
 Randal E. Bryant and David R. O'Halloran.
