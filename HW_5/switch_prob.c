@@ -11,8 +11,13 @@ int switch_prob(int x, int n){
 	int result=x;
 	
 	switch(n){
+<<<<<<< HEAD
 		case50:
 		case52:	
+=======
+		case50: //DEFAULT
+		case52:	//DEFAULT
+>>>>>>> dfb44277d3cce6588154b482d8b196de038bd20d
 			result <<=2;
 			break;
 

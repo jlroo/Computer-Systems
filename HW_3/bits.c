@@ -9,9 +9,23 @@
 #include <limits.h>
 
 team_struct team = {
+<<<<<<< HEAD
 	  "jrodriguezorjuela", 
 	  "Jose Luis Rodriguez Orjuela",
 	  "jrodriguezorjuela"
+=======
+   /* Team name: Replace with either:
+i      Your login ID if working as a one person team
+      or, ID1+ID2 where ID1 is the login ID of the first team member
+      and ID2 is the login ID of the second team member */
+    "jrodriguezorjuela", 
+   /* Student name 1: Replace with the full name of first team member */
+   "Jose Luis Rodriguez Orjuela",
+   /* Login ID 1: Replace with the login ID of first team member */
+   "jrodriguezorjuela ",
+   "No team member", //Had to this to run the btest
+   "No team member" 
+>>>>>>> dfb44277d3cce6588154b482d8b196de038bd20d
 };
 
 /***********************************************************
@@ -40,8 +54,13 @@ int bitNor(int x, int y) {
  *   Rating: 2					   	   *
  ***********************************************************/
 int bitXor(int x, int y) {
+<<<<<<< HEAD
 //(~x & y)|(x & ~y)
   return (~(~(~x&y)&~(x&~y)));
+=======
+return (~x & y)|(x & ~y);
+//  return (~(~(~x & y) & ~( x & ~y)));
+>>>>>>> dfb44277d3cce6588154b482d8b196de038bd20d
 }
 
 /***********************************************************
@@ -129,6 +148,10 @@ int isNonNegative(int x){
  // To indicate the sign of x we use Boolean data type
  // 1 = Negative
  // 0 = Non_Negative 
+<<<<<<< HEAD
 int sign_of_x = x>>31;
+=======
+int sign_of_x = (x>>31);
+>>>>>>> dfb44277d3cce6588154b482d8b196de038bd20d
   return (!(sign_of_x));
 }
