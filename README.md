@@ -15,9 +15,8 @@ Loyola University
 Water TowerCampus, Lewis Towers 520
 820 N. Michigan Ave.
 Chicago, Illinois 60611-2147
-
 Home page: http://rig.cs.luc.edu/~rig
-Lectures: Monday, Wednesday, and Friday 10:25 - 11:15am in Crown 103.
+
 =======
 
 ## Course Objectives
