@@ -1,3 +1,13 @@
+[img1]:https://raw.githubusercontent.com/jlroo/Data_Warehouse_Mining/master/RESOURCES/IMG/HOME_IMG.png
+[img2]:https://raw.githubusercontent.com/jlroo/Data_Warehouse_Mining/master/RESOURCES/IMG/DOCUMENTATION_IMG.png
+
+
+# Quick Navigation
+
+[COMP 264](https://github.com/jlroo/Data_Warehouse_Mining/wiki/SYLLABUS#comp-264-introduction-to-computer-systems)|[PROJECT](https://github.com/jlroo/Data_Warehouse_Mining/wiki/PROJECT)|[WIKI](https://github.com/jlroo/Data_Warehouse_Mining/wiki/DOCUMENTATION)|[ALGORITHMS](https://github.com/jlroo/Data_Warehouse_Mining/wiki/DATA-MINING-ALGORITHMS)|
+---|---|---|---|	
+[![img1]](https://github.com/jlroo/Data_Warehouse_Mining/wiki/SYLLABUS#)| [![img2]](https://github.com/jlroo/Data_Warehouse_Mining/wiki/DOCUMENTATION) | Syllabus | Homework |
+
 COMP 264: Introduction to Computer Systems
 ================
 ###Computer Science Department 
